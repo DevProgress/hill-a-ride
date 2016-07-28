@@ -42,7 +42,7 @@ class User < ApplicationRecord
       if friend_user
         facebook_friend.friend_user_id = friend_user.id
         facebook_friend.friend_name = friend_user.name
-        friend_user.delay.import_facebook_friends
+        friend_user.delay.import_facebook_friends if facebook_friend.new_record?
       else
         facebook_friend.friend_name = friend["name"]
       end
