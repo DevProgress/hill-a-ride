@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
+  after_create :import_facebook_friends
+
   def self.find_for_oauth(oauth)
     user = User.where(facebook_id: oauth["uid"]).first
     return nil unless user
@@ -45,6 +47,7 @@ class User < ApplicationRecord
       facebook_friend.save if facebook_friend.new_record? or facebook_friend.changed?
     end
   end
+  handle_asynchronously :import_facebook_friends
 
   def update_friends
     #update friends for exisiting user
@@ -57,5 +60,7 @@ class User < ApplicationRecord
   def api
     @api ||= FacebookApi.new
   end
+
+
 
 end
