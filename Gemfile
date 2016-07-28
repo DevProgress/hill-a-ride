@@ -19,6 +19,7 @@ source 'https://rubygems.org' do
   gem 'open_uri_redirections'
   gem 'paperclip', '~> 5.0'
   gem 'puma', '~> 3.0'
+  gem 'rails_12factor', group: :production
   gem 'sass-rails', '~> 5.0'
   gem 'turbolinks', '~> 5.x'
   gem 'pundit', '~> 1.1'
