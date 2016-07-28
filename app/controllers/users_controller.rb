@@ -34,6 +34,9 @@ class UsersController < ApplicationController
   end
 
   def friends
+    if current_user and (current_user.city.nil? or current_user.state.nil? or current_user.registered.nil?)
+      flash[:danger] = "Your profile is incomplete. Update it now!"
+    end
     @friends = FacebookFriend.where(user_id: current_user.id)
     @friends = @friends.joins("LEFT JOIN users on facebook_friends.friend_user_id = users.id").select("facebook_friends.friend_name, users.city, users.state")
   end
@@ -41,7 +44,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :name, :city, :state)
+    params.require(:user).permit(:email, :name, :city, :state, :registered)
   end
 
 end

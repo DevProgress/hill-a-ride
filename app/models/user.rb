@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
   after_create :import_facebook_friends
+  after_save :update_friends
 
   def self.find_for_oauth(oauth)
     user = User.where(facebook_id: oauth["uid"]).first
@@ -41,6 +42,7 @@ class User < ApplicationRecord
       if friend_user
         facebook_friend.friend_user_id = friend_user.id
         facebook_friend.friend_name = friend_user.name
+        facebook_friend.delay.import_facebook_friends
       else
         facebook_friend.friend_name = friend["name"]
       end
@@ -52,7 +54,6 @@ class User < ApplicationRecord
   def update_friends
     #update friends for exisiting user
     facebook_friends = FacebookFriend.where(facebook_id: self.id)
-    
   end
 
   private

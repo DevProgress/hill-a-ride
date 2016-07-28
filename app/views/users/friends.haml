@@ -2,15 +2,17 @@
   My Friends Who Are With Her
 .center.share-btn
   = link_to "Recruit Your Friends", "javascript: void(0);", class: "btn btn-primary share-btn btn-bold", id: "facebook-share-link", "data-url" => 'https://areyouwithher.herokuapp.com'
-- if @friends.any?
-  %table.table.table-hover
-    %thead
-      %th
-        Friend
-      %th
-        City
-      %th
-        State
+%table.table.table-hover
+  %thead
+    %th
+      Friend
+    %th
+      City
+    %th
+      State
+    %th
+      Voted?
+  - if @friends.any?
     %tbody
       - @friends.each do |friend|
         %tr
@@ -20,6 +22,8 @@
             = friend.city
           %td
             = friend.state
-- else
+          %td
+            Not Yet!
+- if !@friends.any?
   .text.center
-    You don't have any friends who are with her. Share this to Facebook to recruit them and #TrumpHate!
+    You don't have any friends who are with her. Share this on Facebook to recruit them and #TrumpHate!
