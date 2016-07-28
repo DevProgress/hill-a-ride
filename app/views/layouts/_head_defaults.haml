@@ -2,3 +2,8 @@
   %title= @page_title || "AreYouWithHer"
   = stylesheet_link_tag "application", :media => "all"
   = javascript_include_tag "application"
+  %meta{property: "og:title", content: "Are You With Her?"}
+  %meta{property: "og:type", content: "website"}
+  %meta{property: "og:image", content: image_url("facebook.png")}
+  %meta{property: "og:url", content: root_url}
+  %meta{property: "og:description", content: "I'm voting for Hillary. Are you?"}
