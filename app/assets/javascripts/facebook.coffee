@@ -5,5 +5,3 @@ class window.Facebook
       FB.ui
         method: 'share'
         href: url
-        hashtag: "#ImWithHer"
-        quote: "I'm with her! Are you?"
