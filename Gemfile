@@ -32,6 +32,7 @@ source 'https://rubygems.org' do
   end
 
   group :development do
+    gem 'foreman'
     gem 'web-console'
     gem 'listen', '~> 3.0.5'
     gem 'spring'

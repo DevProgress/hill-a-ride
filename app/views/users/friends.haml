@@ -11,6 +11,8 @@
     %th
       State
     %th
+      Registered?
+    %th
       Voted?
   - if @friends.any?
     %tbody
@@ -22,6 +24,8 @@
             = friend.city
           %td
             = friend.state
+          %td
+            = friend.registered
           %td
             Not Yet!
 - if !@friends.any?

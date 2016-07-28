@@ -21,7 +21,7 @@
 
   .form-group
     = f.label :state, raw("State <span class='required'>(required)</span>")
-    = f.select :state, options_for_select(list_of_states, current_user.state.to_s), {prompt: "Select a state"}, class: "form-control", 'data-original' => current_user.state.to_s, required: true
+    = f.select :state, (@states.map {|s| [s.name, s.abbreviation]}), {prompt: "Select a state"}, class: "form-control", 'data-original' => current_user.state.to_s, required: true
 
   .form-group.required
     .control-label.label-link

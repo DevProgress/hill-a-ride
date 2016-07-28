@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @states = State.all
   end
 
   def update
@@ -38,7 +39,7 @@ class UsersController < ApplicationController
       flash[:danger] = "Your profile is incomplete. Update it now!"
     end
     @friends = FacebookFriend.where(user_id: current_user.id)
-    @friends = @friends.joins("LEFT JOIN users on facebook_friends.friend_user_id = users.id").select("facebook_friends.friend_name, users.city, users.state")
+    @friends = @friends.joins("LEFT JOIN users on facebook_friends.friend_user_id = users.id").joins("LEFT JOIN states on users.state = states.abbreviation").select("facebook_friends.friend_name, users.city, users.state, users.registered, states.swing").order("swing DESC")
   end
 
   private
