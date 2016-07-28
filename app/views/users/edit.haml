@@ -1,0 +1,45 @@
+- set_page_title("My Profile")
+
+= form_for current_user, role: "form", url: account_path, html: {id: "user-form", "data-highlight" => params[:highlight]} do |f|
+  = render "shared/form_errors", object: current_user
+
+  .form-group
+    = f.label :name, raw("Name <span class='required'>(required)</span>")
+    = f.text_field :name, class: "form-control", 'data-original' => current_user.name, required: true
+  
+  .form-group
+    = f.label :email, raw("Email Address <span class='required'>(required)</span>")
+    = f.text_field :email, class: "form-control", 'data-original' => current_user.email, required: true
+
+  .form-group
+    = f.label :address_1, raw("Address")
+    = f.text_field :address_1, class: "form-control", 'data-original' => current_user.address_1
+
+  .form-group
+    = f.label :city, raw("City <span class='required'>(required)</span>")
+    = f.text_field :city, class: "form-control", 'data-original' => current_user.city, required: true
+
+  .form-group
+    = f.label :state, raw("State <span class='required'>(required)</span>")
+    = f.select :state, options_for_select(list_of_states, current_user.state.to_s), {prompt: "Select a state"}, class: "form-control", 'data-original' => current_user.state.to_s, required: true
+
+  .form-group.required
+    .control-label.label-link
+      = f.label :registered, raw("Are you registered to vote? #{link_to "Not sure? Click here", "javascript:void(0)", {id: "registration"}}")
+    = f.select :registered, ['Yes', 'No', 'Not eligible to vote'], {prompt: "Select an option"}, class: "form-control", 'data-original' => current_user.state.to_s, required: true
+
+  = f.submit "Save changes", class: "btn btn-primary form-submit-button"
+
+#registrationModal.modal.fade{:role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    / Modal content
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"} &times;
+        %h4.modal-title 
+          Check Your Voter Registration Status via Vote.org:
+      .modal-body
+        %iframe#frame3{:frameborder => "0", :marginheight => "0", :scrollable => "no", :src => "https://verify.vote.org/?partner=111111", :width => "100%"}
+        %script{:src => "//cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.5.3/iframeResizer.min.js", :type => "text/javascript"}
+        :javascript
+          iFrameResize({ log:true, checkOrigin:false});

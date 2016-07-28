@@ -1,0 +1,28 @@
+#header.sticky.clearfix
+  %header#topNav
+    .container
+      .main-navbar.navbar-collapse
+        %ul.nav.navbar-nav.navbar-right.navbar-right-main
+          - if current_user
+            %li.dropdown
+              %a.dropdown-toggle{class: "user-menu btn btn-success", "aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                - if current_user.photo_url
+                  = image_tag current_user.photo_url, class: "img-circle", height: '45', width: '45'
+                - else
+                  = image_tag "user.png", class: "img-circle", height: '45', width: '45'
+                = current_user.try(:name)
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to "My Friends", user_root_path
+                %li
+                  = link_to "My Info", account_path
+                %li.divider{:role => "separator"}
+                %li
+                  = link_to "Sign Out", destroy_user_session_path, method: :delete
+          - else
+            %li
+              %a{class: "btn btn-block btn-social btn-facebook btn-login", :href => "auth/facebook"}
+                %i.fa.fa-facebook
+                .sign-in
+                  Log in with Facebook

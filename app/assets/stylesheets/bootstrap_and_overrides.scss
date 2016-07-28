@@ -1,0 +1,39 @@
+.left{
+  text-align: left;
+}
+
+.right{
+  text-align: right;
+}
+
+.center{
+  text-align: center;
+}
+
+.btn-login{
+  line-height: 0px !important;
+  margin-top: 10px;
+  width: 180px;
+  .sign-in{
+    margin-left: 20px;
+  }
+}
+
+.user-menu{
+  padding: 5px 5px 5px 5px !important
+}
+
+.table{
+  background-color: white;
+}
+
+.form-group.required .control-label:after {
+  content:"*";
+  color:red;
+
+}
+.label-link{
+  a{
+    color: #fff;
+  }
+}

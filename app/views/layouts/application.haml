@@ -1,0 +1,28 @@
+!!! 5
+%html(lang="en")
+  %head= render "layouts/head_defaults"
+  
+  %body{class: body_classes}
+    = render "layouts/fb_pixel"
+    = render "layouts/google_analytics"
+    = render "layouts/flash_messages"
+
+    = yield :above_header
+
+    = render "layouts/header"
+    
+    = yield :above_container
+
+    - if @exclude_content_container
+      = yield
+    - else
+      #content.container-fluid
+        = yield
+
+    = render "layouts/footer"
+
+    = yield :body_end
+    #popup-container
+
+    - if session[:callback_action].present? and devise_controller? == false
+      = hidden_field_tag :callback_action, session.delete(:callback_action)
