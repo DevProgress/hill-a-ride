@@ -41,3 +41,19 @@
 .footer {
     float: none;
 }
+.section-header{
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: white;
+  text-align: center;
+  padding-bottom: 10px;
+  .section-title{
+    font-size: 30px; 
+  }
+  .section-subtitle{
+    font-size: 18px; 
+  }
+}
+
+.table-hover{
+  margin-bottom: 70px;
+}

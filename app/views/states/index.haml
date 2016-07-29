@@ -1,0 +1,23 @@
+.section-header
+  .section-title
+    The United States of America
+  .section-subtitle
+    Find friends who live in swing states and ask them if they are with her. If they sign up, we'll message them on election day to find out if they voted and you'll be able to see if they did.
+  = link_to "Recruit Your Friends", "javascript: void(0);", class: "btn btn-primary share-btn btn-bold", id: "facebook-share-link", "data-url" => 'https://areyouwithher.herokuapp.com'
+%table.table.table-hover
+  %thead
+    %th
+      Name
+    %th.center
+      Swing State?
+    %th.center
+      Find Friends
+  %tbody
+    - @states.each do |state|
+      %tr
+        %td
+          = state.name
+        %td.center
+          = state.swing.to_s.titleize
+        %td.center
+          = link_to "Find Friends", "https://www.facebook.com/search/top/?q=friends%20who%20live%20in%20#{state.name}", class: "btn btn-primary", target: "_blank"

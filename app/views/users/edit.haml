@@ -1,7 +1,8 @@
 - set_page_title("My Profile")
 
-.header
-  Update Your Info
+.section-header
+  .section-title
+    Update Your Info
 
 = form_for current_user, role: "form", url: account_path, html: {id: "user-form", "data-highlight" => params[:highlight]} do |f|
   = render "shared/form_errors", object: current_user

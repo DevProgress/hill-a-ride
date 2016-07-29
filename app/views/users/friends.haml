@@ -2,6 +2,7 @@
   My Friends Who Are With Her
 .center.share-btn
   = link_to "Recruit Your Friends", "javascript: void(0);", class: "btn btn-primary share-btn btn-bold", id: "facebook-share-link", "data-url" => 'https://areyouwithher.herokuapp.com'
+  = link_to "Find Friends in Swing States", states_path, class: "btn btn-primary share-btn btn-bold"
 %table.table.table-hover
   %thead
     %th
@@ -10,6 +11,8 @@
       City
     %th
       State
+    %th
+      Swing State?
     %th
       Registered?
     %th
@@ -24,6 +27,8 @@
             = friend.city
           %td
             = friend.state
+          %td
+            = friend.swing
           %td
             = friend.registered
           %td
