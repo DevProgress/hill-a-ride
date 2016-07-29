@@ -1,5 +1,8 @@
 - set_page_title("My Profile")
 
+.header
+  Update Your Info
+
 = form_for current_user, role: "form", url: account_path, html: {id: "user-form", "data-highlight" => params[:highlight]} do |f|
   = render "shared/form_errors", object: current_user
 
@@ -12,7 +15,7 @@
     = f.text_field :email, class: "form-control", 'data-original' => current_user.email, required: true
 
   .form-group
-    = f.label :address_1, raw("Address")
+    = f.label :address_1, raw("Address (We'll use this to tell you where to vote on election day)")
     = f.text_field :address_1, class: "form-control", 'data-original' => current_user.address_1
 
   .form-group
@@ -26,7 +29,7 @@
   .form-group.required
     .control-label.label-link
       = f.label :registered, raw("Are you registered to vote? #{link_to "Not sure? Click here (reload if link does not work)", "javascript:void(0)", {id: "registration"}}")
-    = f.select :registered, ['Yes', 'No', 'Not eligible to vote'], {prompt: "Select an option"}, class: "form-control", 'data-original' => current_user.state.to_s, required: true
+    = f.select :registered, ['Yes', 'No', "I'm not eligible to vote"], {prompt: "Select an option"}, class: "form-control", 'data-original' => current_user.state.to_s, required: true
 
   = f.submit "Save changes", class: "btn btn-primary form-submit-button"
 

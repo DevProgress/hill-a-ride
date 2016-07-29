@@ -3565,6 +3565,11 @@
   color: #fff;
 }
 
+/* line 41, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+.footer {
+  float: none;
+}
+
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -13653,6 +13658,11 @@ button.close {
   color: #fff;
 }
 
+/* line 41, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+.footer {
+  float: none;
+}
+
 /* line 1, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/pages.scss */
 body {
   background-color: #147fd7;
@@ -13726,4 +13736,12 @@ body {
 /* line 10, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/users.scss */
 .popup-text {
   color: #fff;
+}
+
+/* line 13, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/users.scss */
+.title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  color: white;
+  text-align: center;
 }

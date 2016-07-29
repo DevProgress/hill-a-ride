@@ -13,14 +13,15 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       set_flash_message(:notice, :success, :kind => provider) if is_navigational_format?
     else
       remember_oauth_data!
+      set_omniauth_redirect(account_path)
       redirect_to oauth_connect_path
     end
   end
 
   private
 
-  def set_omniauth_redirect
-    store_location_for(:user, user_root_path)
+  def set_omniauth_redirect(path = user_root_path)
+    store_location_for(:user, path)
   end
 
   def remember_oauth_data!
