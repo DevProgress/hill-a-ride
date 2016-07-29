@@ -36,10 +36,10 @@ class UsersController < ApplicationController
 
   def friends
     if current_user and (current_user.city.nil? or current_user.state.nil? or current_user.registered.nil?)
-      flash[:danger] = "Your profile is incomplete. Update it now!"
+      flash[:danger] = "Your profile is incomplete. #{view_context.link_to('Update it', account_path)} now!"
     end
     @friends = FacebookFriend.where(user_id: current_user.id)
-    @friends = @friends.joins("LEFT JOIN users on facebook_friends.friend_user_id = users.id").joins("LEFT JOIN states on users.state = states.abbreviation").select("facebook_friends.friend_name, users.city, users.state, users.registered, states.swing").order("swing DESC")
+    @friends = @friends.joins("LEFT JOIN users on facebook_friends.friend_user_id = users.id").joins("LEFT JOIN states on users.state = states.abbreviation").select("users.name, users.city, users.state, users.registered, states.swing").order("swing DESC")
   end
 
   private

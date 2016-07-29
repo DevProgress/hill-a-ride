@@ -25,7 +25,9 @@
 
   .form-group.required
     .control-label.label-link
-      = f.label :registered, raw("Are you registered to vote? #{link_to "Not sure? Click here (reload if link does not work)", "javascript:void(0)", {id: "registration"}}")
+      = f.label :registered, raw("Are you registered to vote?")
+    %br
+      == #{link_to "Not sure? Click here (reload if link does not work)", "javascript:void(0)", {id: "registration"}}
     = f.select :registered, ['Yes', 'No', 'Not eligible to vote'], {prompt: "Select an option"}, class: "form-control", 'data-original' => current_user.state.to_s, required: true
 
   = f.submit "Save changes", class: "btn btn-primary form-submit-button"

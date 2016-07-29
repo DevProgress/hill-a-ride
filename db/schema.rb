@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728231400) do
+ActiveRecord::Schema.define(version: 20160729133738) do
 
   create_table "delayed_jobs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "priority",                 default: 0, null: false
@@ -31,11 +31,9 @@ ActiveRecord::Schema.define(version: 20160728231400) do
     t.integer  "user_id"
     t.string   "facebook_id"
     t.integer  "friend_user_id"
-    t.string   "friend_name"
-    t.string   "city"
-    t.string   "state"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.index ["friend_user_id"], name: "index_facebook_friends_on_friend_user_id", using: :btree
     t.index ["user_id"], name: "index_facebook_friends_on_user_id", using: :btree
   end
 
@@ -75,6 +73,7 @@ ActiveRecord::Schema.define(version: 20160728231400) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["facebook_id"], name: "index_users_on_facebook_id", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["state"], name: "index_users_on_state", using: :btree
   end
 
 end
