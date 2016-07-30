@@ -7,12 +7,14 @@
 = form_for current_user, role: "form", url: account_path, html: {id: "user-form", "data-highlight" => params[:highlight]} do |f|
   = render "shared/form_errors", object: current_user
 
-  .form-group
-    = f.label :name, raw("Name <span class='required'>(required)</span>")
+  .form-group.required
+    .control-label.label-link
+      = f.label :name, raw("Name")
     = f.text_field :name, class: "form-control", 'data-original' => current_user.name, required: true
   
-  .form-group
-    = f.label :email, raw("Email Address <span class='required'>(required)</span>")
+  .form-group.required
+    .control-label.label-link
+      = f.label :email, raw("Email Address")
     = f.text_field :email, class: "form-control", 'data-original' => current_user.email, required: true
 
   .form-group
@@ -20,11 +22,12 @@
     = f.text_field :address_1, class: "form-control", 'data-original' => current_user.address_1
 
   .form-group
-    = f.label :city, raw("City <span class='required'>(required)</span>")
-    = f.text_field :city, class: "form-control", 'data-original' => current_user.city, required: true
+    = f.label :city, raw("City")
+    = f.text_field :city, class: "form-control", 'data-original' => current_user.city
 
-  .form-group
-    = f.label :state, raw("State <span class='required'>(required)</span>")
+  .form-group.required
+    .control-label.label-link
+      = f.label :state, raw("State")
     = f.select :state, (@states.map {|s| [s.name, s.abbreviation]}), {prompt: "Select a state"}, class: "form-control", 'data-original' => current_user.state.to_s, required: true
 
   .form-group.required
