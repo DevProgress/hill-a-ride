@@ -20,6 +20,7 @@ class HillaryApi
           event.description = event_info["description"]
           event.start_date = event_info["startDate"]
           event.end_date = event_info["endDate"]
+          event.lookup_id = event_info["lookupId"]
           if event_info["locations"] and event_info["locations"][0]
             event.address_1 = event_info["locations"][0]["address1"]
             event.address_2 = event_info["locations"][0]["address2"]

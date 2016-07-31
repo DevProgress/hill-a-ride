@@ -3,3 +3,13 @@
     = @event.name
 .text.center
   = @event.description
+  - if @event.address_1
+    %br
+      = @event.address_1
+  - if @event.address_2
+    %br
+      = @event.address_2
+  %br
+    == #{@event.city}, #{@event.state} #{@event.zip_code}
+
+
