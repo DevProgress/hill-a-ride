@@ -2,7 +2,7 @@
   You Have 
   .big
     #{current_user.friends_count}
-  Friends Who Are With Her
+  = I18n.t('friend_count', count: current_user.friends_count)
 .center.share-btn
   = link_to "Recruit Your Friends", "javascript: void(0);", class: "btn btn-primary share-btn btn-bold", id: "facebook-share-link", "data-url" => 'https://areyouwithher.herokuapp.com'
   = link_to "Find Friends in Swing States", states_path, class: "btn btn-primary share-btn btn-bold"

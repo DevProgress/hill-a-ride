@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  friend_count:
+    one: 'Friend Who Is With Her'
+    other: 'Friends Who Are With Her'
