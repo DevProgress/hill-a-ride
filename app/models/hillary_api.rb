@@ -7,10 +7,10 @@ class HillaryApi
     self.class.get("/events/events?page=#{page}&perPage=100&status=confirmed&visibility=public")
   end
 
-  def pull_all_events
+  def pull_all_events(starting_page = 1)
     data = self.events
     pages = data["meta"]["totalPages"]
-    i = 1
+    i = starting_page
     while i <= pages
       data = self.events(i)
       data["events"].each do |event_info|
