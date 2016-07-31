@@ -3570,6 +3570,27 @@
   float: none;
 }
 
+/* line 44, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+.section-header {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: white;
+  text-align: center;
+  padding-bottom: 10px;
+}
+/* line 49, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+.section-header .section-title {
+  font-size: 30px;
+}
+/* line 52, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+.section-header .section-subtitle {
+  font-size: 18px;
+}
+
+/* line 57, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+.table-hover {
+  margin-bottom: 70px;
+}
+
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -13663,6 +13684,27 @@ button.close {
   float: none;
 }
 
+/* line 44, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+.section-header {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: white;
+  text-align: center;
+  padding-bottom: 10px;
+}
+/* line 49, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+.section-header .section-title {
+  font-size: 30px;
+}
+/* line 52, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+.section-header .section-subtitle {
+  font-size: 18px;
+}
+
+/* line 57, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+.table-hover {
+  margin-bottom: 70px;
+}
+
 /* line 1, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/pages.scss */
 body {
   background-color: #147fd7;
@@ -13720,6 +13762,121 @@ body {
   width: 100%;
 }
 
+/* line 51, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/pages.scss */
+.buttons {
+  padding-top: 20px;
+  min-height: 100%;
+  height: 100%;
+}
+/* line 55, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/pages.scss */
+.buttons .col-sm-6 {
+  min-height: 150px;
+}
+/* line 58, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/pages.scss */
+.buttons .btn {
+  font-size: 40px;
+  padding: 20px;
+}
+
+/* line 1, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 33px;
+}
+
+/* line 10, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/scaffolds.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 33px;
+}
+
+/* line 17, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 23, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/scaffolds.scss */
+a {
+  color: #000;
+}
+/* line 26, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/scaffolds.scss */
+a:visited {
+  color: #666;
+}
+/* line 30, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/scaffolds.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 36, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/scaffolds.scss */
+th {
+  padding-bottom: 5px;
+}
+
+/* line 40, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/scaffolds.scss */
+td {
+  padding-bottom: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/* line 47, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/scaffolds.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 52, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 56, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 62, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 70, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 81, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* line 87, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/scaffolds.scss */
+label {
+  display: block;
+}
+
 /* line 1, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/users.scss */
 .text {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -13736,4 +13893,9 @@ body {
 /* line 10, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/users.scss */
 .popup-text {
   color: #fff;
+}
+
+/* line 13, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/users.scss */
+.big {
+  font-size: 50px;
 }

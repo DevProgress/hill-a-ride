@@ -14569,6 +14569,10 @@ if (typeof jQuery === 'undefined') {
 
 }).call(this);
 (function() {
+
+
+}).call(this);
+(function() {
   window.Facebook = (function() {
     function Facebook() {}
 
@@ -14576,9 +14580,7 @@ if (typeof jQuery === 'undefined') {
       return $(selector).click(function() {
         return FB.ui({
           method: 'share',
-          href: url,
-          hashtag: "#ImWithHer",
-          quote: "I'm with her! Are you?"
+          href: url
         });
       });
     };
@@ -14633,6 +14635,15 @@ if (typeof jQuery === 'undefined') {
       version: 'v2.7'
     });
   };
+
+}).call(this);
+(function() {
+  $(function() {
+    var fb, fb_selector;
+    fb = new Facebook;
+    fb_selector = "#facebook-share-link";
+    return fb.bindShareButton(fb_selector, $(fb_selector).attr("data-url"));
+  });
 
 }).call(this);
 (function() {

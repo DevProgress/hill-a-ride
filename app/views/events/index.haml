@@ -1,0 +1,43 @@
+.section-header
+  .section-title
+    Hillary Events
+
+.text
+  Filter by state:
+  .btn-group
+    %button.btn.dropdown-toggle{type: "button", class: "btn btn-grey", "data-toggle" => "dropdown", "aria-expanded" => false}
+      Sort by
+      %span.caret
+    %ul.dropdown-menu{role: "menu"}
+      - for state in @states
+        %li{class: ('state' if params[:filter_by] == state.abbreviation)}= link_to state.name.titleize, events_path(filter_parameters(filter_by: state.abbreviation))
+
+%table.table.table-hover
+  %thead
+    %th
+      Name
+    %th.center
+      City
+    %th.center
+      State
+    %th.center
+      Start
+    %th.center
+      End
+  %tbody
+    - @events.each do |event|
+      %tr
+        %td
+          = link_to event.name, event_path(event)
+        %td.center
+          = link_to event.city, event_path(event)
+        %td.center
+          = link_to event.state, event_path(event)
+        %td.center
+          - if event.start_date
+            = link_to event.start_date.strftime('%b %-d, %l:%M %p'), event_path(event)
+        %td.center
+          - if event.end_date
+            = link_to event.end_date.strftime('%b %-d, %l:%M %p'), event_path(event)
+.paginate
+  = will_paginate @events

@@ -25,6 +25,7 @@ source 'https://rubygems.org' do
   gem 'pundit', '~> 1.1'
   gem 'uglifier', '>= 1.3.0'
   gem 'unicorn', '~> 5.1.0'
+  gem 'will_paginate'
 
   group :development, :test do
     gem 'byebug', platform: :mri

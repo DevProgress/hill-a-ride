@@ -10,5 +10,9 @@ module ApplicationHelper
   def set_page_title(title = "#LoveTrumpsHate")
     @page_title = capture {"AreYouWithHer? - #{title}"}
   end
+
+  def filter_parameters(options = {})
+    {filter: params[:filter], query: params[:query], sort_by: params[:sort_by]}.merge(options)
+  end
   
 end
