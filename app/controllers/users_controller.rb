@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  skip_before_filter :authenticate_user!
+  skip_before_filter :authenticate_user!, only: [:oauth_create, :oauth_connect]
 
   def oauth_create
     @user = User.where(facebook_id: session[:oauth_connect]["uid"]).first_or_initialize

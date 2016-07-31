@@ -47,8 +47,16 @@ class User < ApplicationRecord
       end
       facebook_friend.save if facebook_friend.new_record? or facebook_friend.changed?
     end
+    self.count_friends
   end
   handle_asynchronously :import_facebook_friends
+
+  def count_friends
+    self.friends_count = FacebookFriend.where(user_id: self.id).count
+    self.last_friends_count = Time.now
+    self.save
+  end
+  handle_asynchronously :count_friends
 
   private
 
