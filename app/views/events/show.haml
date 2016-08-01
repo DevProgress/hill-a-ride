@@ -3,13 +3,70 @@
     = @event.name
 .text.center
   = @event.description
-  - if @event.address_1
-    %br
-      = @event.address_1
-  - if @event.address_2
-    %br
-      = @event.address_2
   %br
+    - if @event.address_1
+      = @event.address_1
+    - if @event.address_2 and @event.address_2 != " "
+      = @event.address_2
     == #{@event.city}, #{@event.state} #{@event.zip_code}
+  %br
+    = link_to "RSVP", "https://www.hillaryclinton.com/events/view/#{@event.lookup_id}", class: "btn btn-success btn-lg", target: "_blank"
 
+.col-xs-6.center
+  %h3
+    Rides Available
+  = link_to "Offer Ride", create_ride_path(@event.id), class: "btn btn-success btn-request"
+  - if @cars.any?
+    %table.table.table-hover
+      %thead
+        %th.center
+          Name
+        %th.center
+          Leaving From
+        %th.center
+          Seats Available
+      %tbody
+        - @cars.each do |car|
+          %tr
+            %td.center
+              = car.nickname ? car.nickname : car.name
+            %td.center
+              == #{car.city}, #{car.state}
+            %td.center
+              = car.num_of_seats_available
+  - else
+    .text
+      %br
+        There are no rides available at this time
+  
+  
+
+
+.col-xs-6.center
+  %h3
+    Looking for a Ride
+  = link_to "Request Ride", create_passenger_path(@event.id), class: "btn btn-success btn-request"
+  - if @passengers.any?
+    %table.table.table-hover
+      %thead
+        %th.center
+          Name
+        %th.center
+          Leaving From
+        %th.center
+          Seats Needed
+      %tbody
+        - @passengers.each do |passenger|
+          %tr
+            %td.center
+              = passenger.nickname ? passenger.nickname : passenger.name
+            %td.center
+              == #{passenger.city}, #{passenger.state}
+            %td.center
+              = passenger.seats_still_needed
+
+  - else
+    .text
+      %br
+        No one is looking for a ride at this time
 

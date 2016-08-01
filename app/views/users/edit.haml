@@ -11,6 +11,10 @@
     .control-label.label-link
       = f.label :name, raw("Name")
     = f.text_field :name, class: "form-control", 'data-original' => current_user.name, required: true
+
+  .form-group
+    = f.label :nickname, raw("Nickname")
+    = f.text_field :nickname, class: "form-control", 'data-original' => current_user.nickname
   
   .form-group.required
     .control-label.label-link

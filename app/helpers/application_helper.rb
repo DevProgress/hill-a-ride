@@ -14,5 +14,9 @@ module ApplicationHelper
   def filter_parameters(options = {})
     {filter: params[:filter], query: params[:query], sort_by: params[:sort_by]}.merge(options)
   end
+
+  def datetime_format(datetime)
+    datetime.strftime('%b %-d, %l:%M %p')
+  end
   
 end

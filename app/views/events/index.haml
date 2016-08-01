@@ -6,7 +6,7 @@
   Filter by state:
   .btn-group
     %button.btn.dropdown-toggle{type: "button", class: "btn btn-grey", "data-toggle" => "dropdown", "aria-expanded" => false}
-      Sort by
+      Select state:
       %span.caret
     %ul.dropdown-menu{role: "menu"}
       - for state in @states
@@ -35,9 +35,9 @@
           = link_to event.state, event_path(event)
         %td.center
           - if event.start_date
-            = link_to event.start_date.strftime('%b %-d, %l:%M %p'), event_path(event)
+            = link_to datetime_format(event.start_date), event_path(event)
         %td.center
           - if event.end_date
-            = link_to event.end_date.strftime('%b %-d, %l:%M %p'), event_path(event)
+            = link_to datetime_format(event.end_date), event_path(event)
 .paginate
   = will_paginate @events

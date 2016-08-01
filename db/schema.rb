@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160731215649) do
+ActiveRecord::Schema.define(version: 20160801125834) do
+
+  create_table "cars", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "event_id"
+    t.integer  "user_id"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.float    "latitude",               limit: 24
+    t.float    "longitude",              limit: 24
+    t.integer  "num_of_seats"
+    t.integer  "num_of_seats_available"
+    t.datetime "leave"
+    t.datetime "return"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.index ["event_id"], name: "index_cars_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_cars_on_user_id", using: :btree
+  end
 
   create_table "delayed_jobs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "priority",                 default: 0, null: false
@@ -54,6 +73,22 @@ ActiveRecord::Schema.define(version: 20160731215649) do
     t.index ["user_id"], name: "index_facebook_friends_on_user_id", using: :btree
   end
 
+  create_table "passengers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "event_id"
+    t.integer  "user_id"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.float    "latitude",           limit: 24
+    t.float    "longitude",          limit: 24
+    t.integer  "seats_requested"
+    t.integer  "seats_still_needed"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["event_id"], name: "index_passengers_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_passengers_on_user_id", using: :btree
+  end
+
   create_table "states", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "abbreviation"
@@ -89,6 +124,8 @@ ActiveRecord::Schema.define(version: 20160731215649) do
     t.datetime "updated_at",                          null: false
     t.integer  "friends_count",          default: 0,  null: false
     t.datetime "last_friends_count"
+    t.string   "phone"
+    t.string   "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["facebook_id"], name: "index_users_on_facebook_id", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

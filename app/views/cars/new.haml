@@ -1,0 +1,12 @@
+.section-header
+  .section-title
+    == Offer Ride to #{@event.name}
+.text.center
+  - if @event.address_1
+    = @event.address_1
+  - if @event.address_2 and @event.address_2 != " "
+    = @event.address_2
+  == #{@event.city}, #{@event.state} #{@event.zip_code}
+  %br
+    = datetime_format(@event.start_date)
+  = render "form"
