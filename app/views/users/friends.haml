@@ -9,29 +9,29 @@
   = link_to "Find Friends Who Like Hillary", "https://www.facebook.com/search/889307941125736/likers/me/friends/intersect", class: "btn btn-primary share-btn btn-bold", target: "_blank"
 %table.table.table-hover
   %thead
-    %th
+    %th.center
       Friend
-    %th
+    %th.center
       State
-    %th
+    %th.center
       Swing State?
-    %th
+    %th.center
       Registered?
-    %th
+    %th.center
       Voted?
   - if @friends.any?
     %tbody
       - @friends.each do |friend|
         %tr
-          %td
+          %td.center
             = friend.name
-          %td
+          %td.center
             = friend.state
-          %td
-            = friend.swing
-          %td
-            = friend.registered
-          %td
+          %td.center
+            = yes_no(friend.swing)
+          %td.center
+            = yes_no(friend.registered)
+          %td.center
             Not Yet!
 - if !@friends.any?
   .text.center

@@ -18,5 +18,13 @@ module ApplicationHelper
   def datetime_format(datetime)
     datetime.strftime('%b %-d, %l:%M %p')
   end
+
+  def yes_no(boolean)
+    if boolean == 1
+      "Yes"
+    else
+      "No"
+    end
+  end
   
 end
