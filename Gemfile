@@ -15,6 +15,7 @@ source 'https://rubygems.org' do
   gem 'httparty', '~> 0.13.1'
   gem 'jbuilder', '~> 2.0'
   gem 'jquery-rails'
+  gem 'mailgunner', '~> 2.4'
   gem 'mysql2'
   gem 'omniauth-facebook', '~> 4.0'
   gem 'open_uri_redirections'
