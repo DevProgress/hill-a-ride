@@ -22,8 +22,10 @@ module ApplicationHelper
   def yes_no(boolean)
     if boolean == 1
       "Yes"
-    else
+    elsif boolean == 0
       "No"
+    else
+      nil
     end
   end
   
