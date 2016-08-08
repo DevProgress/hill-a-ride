@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160801125834) do
+ActiveRecord::Schema.define(version: 20160805203938) do
 
   create_table "cars", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "event_id"
@@ -87,6 +87,18 @@ ActiveRecord::Schema.define(version: 20160801125834) do
     t.datetime "updated_at",                    null: false
     t.index ["event_id"], name: "index_passengers_on_event_id", using: :btree
     t.index ["user_id"], name: "index_passengers_on_user_id", using: :btree
+  end
+
+  create_table "ride_requests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "passenger_id"
+    t.integer  "car_id"
+    t.integer  "status",                               default: 0
+    t.integer  "num_of_seats_requested"
+    t.text     "note",                   limit: 65535
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
+    t.index ["car_id"], name: "index_ride_requests_on_car_id", using: :btree
+    t.index ["passenger_id"], name: "index_ride_requests_on_passenger_id", using: :btree
   end
 
   create_table "states", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

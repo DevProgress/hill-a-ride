@@ -25,6 +25,8 @@
           Leaving From
         %th.center
           Seats Available
+        %th.center
+          Join Car
       %tbody
         - @cars.each do |car|
           %tr
@@ -34,6 +36,8 @@
               == #{car.city}, #{car.state}
             %td.center
               = car.num_of_seats_available
+            %td.center
+              = link_to "Request Seats", new_ride_request_path(:car => car.car_id), class: "btn btn-success"
   - else
     .text
       %br

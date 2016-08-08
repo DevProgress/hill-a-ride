@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action :set_car, only: [:edit, :update]
+  before_action :set_car, only: [:edit, :update, :accept]
 
   def new
     @event = Event.find(params[:id])
@@ -25,6 +25,22 @@ class CarsController < ApplicationController
 
   def update
     authorize @car
+  end
+
+  def accept
+    authorize @car
+    ride = RideRequest.find(params[:ride])
+    passenger = Passenger.find(ride.passenger_id)
+
+    @car.num_of_seats_available -= ride.num_of_seats_requested
+    ride.status = "accepted"
+    passenger.seats_still_needed -= ride.num_of_seats_requested
+
+    @car.save if @car.changed?
+    ride.save if ride.changed?
+    passenger.save if passenger.changed?
+
+    redirect_to rides_path
   end
 
   private

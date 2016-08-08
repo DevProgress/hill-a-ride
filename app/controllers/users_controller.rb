@@ -42,6 +42,12 @@ class UsersController < ApplicationController
     @friends = @friends.joins("LEFT JOIN users on facebook_friends.friend_user_id = users.id").joins("LEFT JOIN states on users.state = states.abbreviation").select("users.name, users.state, users.registered, states.swing").order("swing DESC")
   end
 
+  def rides
+    @cars = Car.where(user_id: current_user.id).joins("LEFT JOIN events on event_id = events.id").select("events.name as event_name, events.city as event_city, events.state as event_state, cars.num_of_seats, cars.num_of_seats_available, cars.id")
+    @ride_requests = RideRequest.where(car_id: @cars.ids)
+    @passengers = Passenger.where(user_id: current_user.id).joins("LEFT JOIN events on event_id = events.id").select("events.name as event_name, events.city as event_city, events.state as event_state")
+  end
+
   private
 
   def user_params

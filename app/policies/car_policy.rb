@@ -7,11 +7,15 @@ class CarPolicy
   end
 
   def edit?
-    current_user.id == @car.user_id
+    user.id == @car.user_id
   end
 
   def update?
-    current_user.id == @car.user_id
+    edit?
+  end
+
+  def accept?
+    edit?
   end
 
 end

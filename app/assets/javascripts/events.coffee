@@ -1,3 +1,13 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+
+  if $("body").hasClass("events-show")
+    new EventPage()
+  
+class window.EventPage
+  constructor: () ->
+    bind_request_seat_popup()
+
+  bind_request_seat_popup = () ->
+
+    $("#request-seat-modal").click ->
+      $("#requestSeatModal").modal('show')

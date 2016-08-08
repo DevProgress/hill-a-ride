@@ -1,0 +1,12 @@
+= form_for @ride_request, url: ride_requests_path, html: {class: "form"} do |f|
+  = f.hidden_field :car_id, value: @car.id
+
+  == Request #{f.select :num_of_seats_requested, options_for_select([*1..@car.num_of_seats_available]), required: true} Seats
+  .form-group
+    = f.label :note, "Note to driver:"
+    = f.text_area :note, class: "form-control"
+  %p
+  %br
+    = link_to "Cancel", event_path(@event), class: "btn btn-danger"
+
+    = f.submit "Submit", class: "btn btn-success"

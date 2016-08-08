@@ -6,4 +6,13 @@ class UserMailer < ApplicationMailer
     @url  = 'https://areyouwithher.herokuapp.com/'
     mail(to: @user.email, subject: 'Welcome to AreYouWithHer')
   end
+
+  def ride_request_email
+
+  end
+
+  def ride_request_accepted_email
+
+  end
+  
 end

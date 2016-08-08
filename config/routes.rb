@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :states, only: [:index]
   resources :events, only: [:index, :show]
   resources :cars
-  resources :passengers
+  resources :ride_requests
+
+  post 'ride_requests/submit' => "ride_requests#submit", as: :ride_request_submit
 
   get 'oauth_connect' => "users#oauth_connect", as: :oauth_connect
   post 'oauth_create' => "users#oauth_create", as: :oauth_create
@@ -15,10 +17,13 @@ Rails.application.routes.draw do
 
   get 'account' => 'users#edit', as: :account
   get 'friends' => 'users#friends', as: :user_root
+  get 'rides' => 'users#rides', as: :rides
   patch 'account' => "users#update", as: :user
 
   get 'events/:id/create_ride' => 'cars#new', as: :create_ride
   get 'events/:id/request_ride' => 'passengers#new', as: :create_passenger
+
+  post 'cars/:id/accept' => 'cars#accept', as: :car_accept
 
   root :to => 'pages#home'
 end

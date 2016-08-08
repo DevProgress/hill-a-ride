@@ -13,6 +13,13 @@ class User < ApplicationRecord
     return user
   end
 
+  def nickname_with_fallback
+    return self.nickname if self.nickname
+    return self.name if self.name
+    return "Hillary Supporter"
+
+  end
+
   def self.find_by_oauth_email(oauth)
     User.where(email: oauth['info']["email"]).first
   end

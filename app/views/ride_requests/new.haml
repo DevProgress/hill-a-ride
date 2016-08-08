@@ -1,0 +1,17 @@
+.section-header
+  .section-title
+    == Request Seats in #{@driver.nickname_with_fallback}'s Car
+.text.center
+  == Going To #{link_to @event.name, event_path(@event.id)}
+  %br
+    = @event.display_address
+
+  %p
+    Leaving from: 
+    %br
+      == #{@car.city}, #{@car.state}
+    %br
+      == #{@car.num_of_seats_available} Seats Available
+
+  %p
+    = render "form"

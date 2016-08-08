@@ -18,11 +18,5 @@
   .form-group
     = f.label :num_of_seats
     = f.number_field :num_of_seats, class: "form-control", required: true
-  .form-group
-    = f.label :leave
-    = f.datetime_local_field :leave, class: "form-control", required: true
-  .form-group
-    = f.label :return
-    = f.datetime_local_field :return, class: "form-control", required: true
 
   = f.submit "Submit", class: "btn btn-primary form-submit-button"
