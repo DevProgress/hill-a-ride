@@ -4,35 +4,42 @@
 .text.center
   %h3
     Rides I'm Offering
-  %ul.list-group
-    - @cars.each do |car|
-      %li.list-group-item
-        == #{car.event_name} - #{car.event_city}, #{car.event_state}
-        %br
-          == #{car.num_of_seats_available}/#{car.num_of_seats} Seats Still Available
-        - ride_requests = car_rides(car.id)
-        - if ride_requests.any?
-          
-          %table.table.table-hover.table-rides
-            %thead
-              %tr
-                %th
-                  Ride Requests:
-            %tbody
-              - ride_requests.each do |ride|
+  - if @cars.any?
+    %ul.list-group
+      - @cars.each do |car|
+        %li.list-group-item
+          == #{car.event_name} - #{car.event_city}, #{car.event_state}
+          %br
+            == #{car.num_of_seats_available}/#{car.num_of_seats} Seats Still Available
+          - ride_requests = car_rides(car.id)
+          - if ride_requests.any?
+            
+            %table.table.table-hover.table-rides
+              %thead
                 %tr
-                  %td
-                    = ride.passenger.user.name
-                  %td
-                    == Needs #{ride.num_of_seats_requested} seats
-                  %td
-                    = ride.note
-                  %td
-                    = link_to "Accept", car_accept_path(car.id, ride: ride.id), class: "btn btn-primary", method: :post
+                  %th
+                    Ride Requests:
+              %tbody
+                - ride_requests.each do |ride|
+                  %tr
+                    %td
+                      = ride.passenger.user.name
+                    %td
+                      == Needs #{ride.num_of_seats_requested} seats
+                    %td
+                      = ride.note
+                    %td
+                      = link_to "Accept", car_accept_path(car.id, ride: ride.id), class: "btn btn-primary", method: :post
+  - else
+    I'm not offering any rides.
+
 
   %h3
     Rides I'm Requesting
-  %ul.list-group
-    - @passengers.each do |passenger|
-      %li.list-group-item
-        == #{passenger.event_name} - #{passenger.event_city}, #{passenger.event_state}
+  - if @passengers.any?
+    %ul.list-group
+      - @passengers.each do |passenger|
+        %li.list-group-item
+          == #{passenger.event_name} - #{passenger.event_city}, #{passenger.event_state}
+  - else
+    I'm not requesting any rides yet.
