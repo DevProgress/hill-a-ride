@@ -14569,6 +14569,35 @@ if (typeof jQuery === 'undefined') {
 
 }).call(this);
 (function() {
+
+
+}).call(this);
+(function() {
+  $(function() {
+    if ($("body").hasClass("events-show")) {
+      return new EventPage();
+    }
+  });
+
+  window.EventPage = (function() {
+    var bind_request_seat_popup;
+
+    function EventPage() {
+      bind_request_seat_popup();
+    }
+
+    bind_request_seat_popup = function() {
+      return $("#request-seat-modal").click(function() {
+        return $("#requestSeatModal").modal('show');
+      });
+    };
+
+    return EventPage;
+
+  })();
+
+}).call(this);
+(function() {
   window.Facebook = (function() {
     function Facebook() {}
 
@@ -14640,6 +14669,14 @@ if (typeof jQuery === 'undefined') {
     fb_selector = "#facebook-share-link";
     return fb.bindShareButton(fb_selector, $(fb_selector).attr("data-url"));
   });
+
+}).call(this);
+(function() {
+
+
+}).call(this);
+(function() {
+
 
 }).call(this);
 (function() {
