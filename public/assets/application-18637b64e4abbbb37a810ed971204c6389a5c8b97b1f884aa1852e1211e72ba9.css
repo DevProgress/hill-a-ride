@@ -3602,6 +3602,41 @@
   color: white;
 }
 
+/* line 70, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+.form-submit-button {
+  margin-bottom: 50px;
+}
+
+/* line 74, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+br {
+  color: white;
+}
+
+/* line 78, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+.footer a {
+  color: #147fd7;
+}
+
+/* line 84, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+table a {
+  color: #337ab7;
+}
+
+/* line 89, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+.list-group-item {
+  color: black !important;
+}
+
+/* line 93, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+li.active a {
+  background-color: #e1e1e1 !important;
+  color: #006ed4;
+}
+/* line 96, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+li.active a:hover {
+  color: #006ed4;
+}
+
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -13727,9 +13762,64 @@ button.close {
   color: white;
 }
 
+/* line 70, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+.form-submit-button {
+  margin-bottom: 50px;
+}
+
+/* line 74, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+br {
+  color: white;
+}
+
+/* line 78, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+.footer a {
+  color: #147fd7;
+}
+
+/* line 84, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+table a {
+  color: #337ab7;
+}
+
+/* line 89, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+.list-group-item {
+  color: black !important;
+}
+
+/* line 93, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+li.active a {
+  background-color: #e1e1e1 !important;
+  color: #006ed4;
+}
+/* line 96, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/bootstrap_and_overrides.scss */
+li.active a:hover {
+  color: #006ed4;
+}
+
 /* line 1, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/events.scss */
 .table-hover {
   margin-bottom: 0px !important;
+}
+
+/* line 4, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/events.scss */
+.text {
+  padding-bottom: 20px;
+}
+
+/* line 7, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/events.scss */
+h3 {
+  color: white;
+}
+
+/* line 10, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/events.scss */
+.btn-request {
+  margin-bottom: 20px;
+}
+
+/* line 13, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/events.scss */
+.filter {
+  padding-bottom: 15px;
 }
 
 /* line 1, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/pages.scss */
@@ -13805,6 +13895,16 @@ body {
   padding: 20px;
 }
 
+/* line 1, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/ride_requests.scss */
+a {
+  color: white;
+}
+
+/* line 4, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/ride_requests.scss */
+select {
+  color: black;
+}
+
 /* line 1, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/users.scss */
 .text {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -13826,4 +13926,9 @@ body {
 /* line 13, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/users.scss */
 .big {
   font-size: 50px;
+}
+
+/* line 16, /Users/sanjaya/code/AreYouWithHer/app/assets/stylesheets/users.scss */
+.table-rides {
+  border: 0px;
 }
