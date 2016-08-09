@@ -1,0 +1,61 @@
+.section-header
+  .section-title
+    Hillarides - Find A Ride
+.text.center
+  = link_to "Offer A Ride", new_car_path, class: "btn btn-success btn-lg"
+
+.text
+  .col-xs-12.col-sm-6.center.filter
+    Filter by Departure State:
+    .btn-group
+      %button.btn.dropdown-toggle{type: "button", class: "btn btn-grey", "data-toggle" => "dropdown", "aria-expanded" => false}
+        Select state:
+        %span.caret
+      %ul.dropdown-menu{role: "menu"}
+        - for state in @states
+          %li{class: ('active' if params[:departure_state] == state.abbreviation)}= link_to state.name.titleize, cars_path(filter_parameters(departure_state: state.abbreviation, destination_state: params[:destination_state]))
+  .col-xs-12.col-sm-6.center.filter
+    Filter by Destination State:
+    .btn-group
+      %button.btn.dropdown-toggle{type: "button", class: "btn btn-grey", "data-toggle" => "dropdown", "aria-expanded" => false}
+        Select state:
+        %span.caret
+      %ul.dropdown-menu{role: "menu"}
+        - for state in @states
+          %li{class: ('active' if params[:destination_state] == state.abbreviation)}= link_to state.name.titleize, cars_path(filter_parameters(departure_state: params[:departure_state], destination_state: state.abbreviation))
+
+%table.table.table-hover
+  %thead
+    %th
+      Name
+    %th.center
+      Leaving From
+    %th.center
+      Going To
+    %th.center
+      Leaving On
+    %th.center
+      Returning
+    %th.center
+      Num of Seats Available
+    %th.center
+      Join Car
+  %tbody
+    - @cars.each do |car|
+      %tr
+        %td
+          = car.user.nickname_with_fallback
+        %td.center
+          == #{car.city}, #{car.state}
+        %td.center
+          == #{car.destination_city}, #{car.destination_state}
+        %td.center
+          = datetime_format(car.leave)
+        %td.center
+          = datetime_format(car.return)
+        %td.center
+          = car.num_of_seats_available
+        %td.center
+          = link_to "Request Seats", new_ride_request_path(:car => car.id), class: "btn btn-success"
+.paginate
+  = will_paginate @cars

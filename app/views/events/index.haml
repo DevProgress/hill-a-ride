@@ -10,6 +10,12 @@
         Select state:
         %span.caret
       %ul.dropdown-menu{role: "menu"}
+        .dropdown-header
+          Swing States
+        - for state in @swing_states
+          %li{class: ('active' if params[:state] == state.abbreviation)}= link_to state.name.titleize, events_path(filter_parameters(state: state.abbreviation, event_type: params[:event_type]))
+        .dropdown-header
+          All States
         - for state in @states
           %li{class: ('active' if params[:state] == state.abbreviation)}= link_to state.name.titleize, events_path(filter_parameters(state: state.abbreviation, event_type: params[:event_type]))
   .col-xs-12.col-sm-6.center.filter

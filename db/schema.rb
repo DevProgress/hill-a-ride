@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809131118) do
+ActiveRecord::Schema.define(version: 20160809153906) do
 
   create_table "cars", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "event_id"
@@ -19,14 +19,18 @@ ActiveRecord::Schema.define(version: 20160809131118) do
     t.string   "city"
     t.string   "state"
     t.string   "zip_code"
-    t.float    "latitude",               limit: 24
-    t.float    "longitude",              limit: 24
+    t.decimal  "latitude",               precision: 10, scale: 7
+    t.decimal  "longitude",              precision: 10, scale: 7
     t.integer  "num_of_seats"
     t.integer  "num_of_seats_available"
     t.datetime "leave"
     t.datetime "return"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.string   "destination_address"
+    t.string   "destination_city"
+    t.string   "destination_state"
+    t.string   "destination_zip_code"
     t.index ["event_id"], name: "index_cars_on_event_id", using: :btree
     t.index ["user_id"], name: "index_cars_on_user_id", using: :btree
   end
@@ -87,12 +91,12 @@ ActiveRecord::Schema.define(version: 20160809131118) do
     t.string   "city"
     t.string   "state"
     t.string   "zip_code"
-    t.float    "latitude",           limit: 24
-    t.float    "longitude",          limit: 24
+    t.decimal  "latitude",           precision: 10, scale: 7
+    t.decimal  "longitude",          precision: 10, scale: 7
     t.integer  "seats_requested"
     t.integer  "seats_still_needed"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.index ["event_id"], name: "index_passengers_on_event_id", using: :btree
     t.index ["user_id"], name: "index_passengers_on_user_id", using: :btree
   end

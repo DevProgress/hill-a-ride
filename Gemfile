@@ -4,6 +4,7 @@ source 'https://rubygems.org' do
   gem 'rails', '>= 5.0.0.rc2', '< 5.1'
 
   gem 'aws-sdk', '~> 2.3', '>= 2.3.2'
+  gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
   gem 'bootstrap-sass', '~> 3.3.6'
   gem 'bootstrap-social-rails'
   gem 'coffee-rails', '~> 4.1.0'
@@ -16,6 +17,7 @@ source 'https://rubygems.org' do
   gem 'jbuilder', '~> 2.0'
   gem 'jquery-rails'
   gem 'mailgunner', '~> 2.4'
+  gem 'momentjs-rails', '>= 2.9.0'
   gem 'mysql2'
   gem 'omniauth-facebook', '~> 4.0'
   gem 'open_uri_redirections'

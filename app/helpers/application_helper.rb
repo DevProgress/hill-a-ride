@@ -16,7 +16,11 @@ module ApplicationHelper
   end
 
   def datetime_format(datetime)
-    datetime.strftime('%b %-d, %l:%M %p')
+    if datetime
+      datetime.localtime.getutc.strftime('%b %-d, %l:%M %p %Z')
+    else
+      nil
+    end
   end
 
   def yes_no(boolean)

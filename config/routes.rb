@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   get 'account' => 'users#edit', as: :account
   get 'friends' => 'users#friends', as: :user_root
-  get 'rides' => 'users#rides', as: :rides
+  get 'rides' => 'users#rides', as: :user_rides
   patch 'account' => "users#update", as: :user
 
   get 'events/:id/create_ride' => 'cars#new', as: :create_ride

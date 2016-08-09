@@ -8,7 +8,11 @@
     %ul.list-group
       - @cars.each do |car|
         %li.list-group-item
-          == #{car.event_name} - #{car.event_city}, #{car.event_state}
+          - if car.event_name
+            == Going to: #{car.event_name} - #{car.destination_city}, #{car.destination_state} on #{datetime_format(car.leave)}
+          - else
+            == Going to: #{car.destination_city}, #{car.destination_state} on #{datetime_format(car.leave)}
+
           %br
             == #{car.num_of_seats_available}/#{car.num_of_seats} Seats Still Available
           - ride_requests = car_rides(car.id)
@@ -17,8 +21,8 @@
             %table.table.table-hover.table-rides
               %thead
                 %tr
-                  %th
-                    Ride Requests:
+                  %td.center{colspan: 4}
+                    Ride Requests for this car:
               %tbody
                 - ride_requests.each do |ride|
                   %tr

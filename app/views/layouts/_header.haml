@@ -22,7 +22,9 @@
                 %li
                   = link_to "Events", events_path
                 %li
-                  = link_to "My Rides", rides_path
+                  = link_to "Hill-a-rides", cars_path
+                %li
+                  = link_to "My Rides", user_rides_path
                 %li.divider{:role => "separator"}
                 %li
                   = link_to "Sign Out", destroy_user_session_path, method: :delete

@@ -6,7 +6,8 @@ class EventsController < ApplicationController
     @events = Event.where("start_date >= now()").order("start_date")
     @events = @events.where(state: params[:state]) if params[:state]
     @events = @events.where(event_type_id: params[:event_type]) if params[:event_type]
-    @states = State.all.order("swing DESC, name")
+    @swing_states = State.where(swing: true).order("name")
+    @states = State.all.order("name")
     @event_types = EventType.all
     page = params[:page]
     page ||= 1

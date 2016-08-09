@@ -10,6 +10,8 @@
       = @event.address_2
     == #{@event.city}, #{@event.state} #{@event.zip_code}
   %br
+    == #{datetime_format(@event.start_date)} - #{datetime_format(@event.end_date)}
+  %br
     = link_to "RSVP", "https://www.hillaryclinton.com/events/view/#{@event.lookup_id}", class: "btn btn-success btn-lg", target: "_blank"
 
 .col-xs-6.center

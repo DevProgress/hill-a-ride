@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   end
 
   def rides
-    @cars = Car.where(user_id: current_user.id).joins("LEFT JOIN events on event_id = events.id").select("events.name as event_name, events.city as event_city, events.state as event_state, cars.num_of_seats, cars.num_of_seats_available, cars.id")
+    @cars = Car.where(user_id: current_user.id).joins("LEFT JOIN events on event_id = events.id").select("events.name as event_name, cars.destination_city, cars.destination_state, cars.num_of_seats, cars.num_of_seats_available, cars.id, cars.leave")
     @ride_requests = RideRequest.where(car_id: @cars.ids)
     @passengers = Passenger.where(user_id: current_user.id).joins("LEFT JOIN events on event_id = events.id").select("events.name as event_name, events.city as event_city, events.state as event_state")
   end
