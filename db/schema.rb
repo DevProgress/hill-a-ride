@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805203938) do
+ActiveRecord::Schema.define(version: 20160809131118) do
 
   create_table "cars", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "event_id"
@@ -46,9 +46,15 @@ ActiveRecord::Schema.define(version: 20160805203938) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
   end
 
+  create_table "event_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "name"
-    t.text     "description", limit: 16777215
+    t.text     "description",   limit: 16777215
     t.datetime "start_date"
     t.datetime "end_date"
     t.string   "address_1"
@@ -56,11 +62,13 @@ ActiveRecord::Schema.define(version: 20160805203938) do
     t.string   "city"
     t.string   "state"
     t.string   "zip_code"
-    t.decimal  "latitude",                     precision: 10
-    t.decimal  "longitude",                    precision: 10
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.decimal  "latitude",                       precision: 10, scale: 7
+    t.decimal  "longitude",                      precision: 10, scale: 7
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
     t.string   "lookup_id"
+    t.integer  "event_type_id"
+    t.index ["event_type_id"], name: "index_events_on_event_type_id", using: :btree
   end
 
   create_table "facebook_friends", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

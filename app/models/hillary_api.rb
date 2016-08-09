@@ -30,6 +30,10 @@ class HillaryApi
             event.latitude = event_info["locations"][0]["latitude"]
             event.longitude = event_info["locations"][0]["longitude"]
           end
+          if event_info["templateInfo"] and event_info["templateInfo"]["title"]
+            event_type = EventType.where(name: event_info["templateInfo"]["title"]).first_or_create
+            event.event_type_id = event_type.id
+          end
           event.save if event.changed? or event.new_record?
         rescue
         end
