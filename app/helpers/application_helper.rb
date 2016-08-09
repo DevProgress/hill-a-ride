@@ -17,7 +17,7 @@ module ApplicationHelper
 
   def datetime_format(datetime)
     if datetime
-      datetime.localtime.getutc.strftime('%b %-d, %l:%M %p %Z')
+      datetime.localtime.strftime('%b %-d, %l:%M %p %Z')
     else
       nil
     end
