@@ -1,4 +1,5 @@
 class CarsController < ApplicationController
+  skip_before_filter :authenticate_user!, only: [:index]
   before_action :set_car, only: [:edit, :update, :accept]
 
   def index
