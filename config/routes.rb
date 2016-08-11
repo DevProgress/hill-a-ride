@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post 'oauth_create' => "users#oauth_create", as: :oauth_create
   patch 'oauth_update' => "users#oauth_update", as: :oauth_update
 
+  get 'aywh' => "pages#aywh", as: :aywh
   get 'yes' => "pages#yes", as: :yes
   get 'no' => "pages#no", as: :no
 
