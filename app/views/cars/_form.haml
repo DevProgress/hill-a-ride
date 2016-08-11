@@ -1,4 +1,4 @@
-= form_for @car, url: cars_path, html: {class: "form"} do |f|
+= bootstrap_form_for @car, url: cars_path, html: {class: "form"} do |f|
   = render 'shared/form_errors', object: @car
   - if @event
     = f.hidden_field :event_id, value: params[:id]
@@ -6,47 +6,30 @@
   %h2
     Leaving From:
   .form-group
-    = f.label :address
     = f.text_field :address, class: "form-control", required: true
   .form-group
-    = f.label :city
     = f.text_field :city, class: "form-control", required: true
   .form-group
-    = f.label :state
     = f.select :state, (@states.map {|s| [s.name, s.abbreviation]}), {prompt: "Select a state"}, class: "form-control", 'data-original' => current_user.state.to_s, required: true
   .form-group
-    = f.label :zip_code
     = f.text_field :zip_code, class: "form-control", required: true
   .form-group
-    = f.label :num_of_seats
     = f.number_field :num_of_seats, class: "form-control", required: true
   .form-group
-    = f.label :leave, "Estimated Departure Time"
-    #datetimepicker1.input-group.date
-      %input.form-control{:type => "datetime", :name => "car[leave]", :id => "car_leave"}
-      %span.input-group-addon
-        %span.glyphicon.glyphicon-calendar
+    = f.datetime_field :leave, label: "Estimated departure time"
   .form-group
-    = f.label :return, "Estimated Return Time (optional)"
-    #datetimepicker2.input-group.date
-      %input.form-control{:type => "datetime", :name => "car[return]", :id => "car_return"}
-      %span.input-group-addon
-        %span.glyphicon.glyphicon-calendar
+    = f.datetime_field :return, label: "Estimated arrival time"
 
   - if @event.nil?
     %h2
       Going To:
     .form-group
-      = f.label :destination_address
       = f.text_field :destination_address, class: "form-control"
     .form-group
-      = f.label :destination_city
       = f.text_field :destination_city, class: "form-control", required: true
     .form-group
-      = f.label :destination_state
       = f.select :destination_state, (@states.map {|s| [s.name, s.abbreviation]}), {prompt: "Select a state"}, class: "form-control", 'data-original' => current_user.state.to_s, required: true
     .form-group
-      = f.label :destination_zip_code
       = f.text_field :destination_zip_code, class: "form-control", required: true
 
   = f.submit "Submit", class: "btn btn-primary form-submit-button"

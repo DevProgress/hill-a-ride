@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'no' => "pages#no", as: :no
 
   get 'account' => 'users#edit', as: :account
-  get 'friends' => 'users#friends', as: :user_root
+  get 'events' => 'events#index', as: :user_root
   get 'rides' => 'users#rides', as: :user_rides
   patch 'account' => "users#update", as: :user
 
