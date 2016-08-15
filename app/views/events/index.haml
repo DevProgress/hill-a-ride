@@ -3,7 +3,7 @@
     Hillary Events
 
 .text
-  .col-xs-12.col-sm-6.center.filter
+  .col-xs-12.col-sm-4.center.filter
     Filter by state:
     .btn-group
       %button.btn.dropdown-toggle{type: "button", class: "btn btn-grey", "data-toggle" => "dropdown", "aria-expanded" => false}
@@ -13,12 +13,12 @@
         .dropdown-header
           Swing States
         - for state in @swing_states
-          %li{class: ('active' if params[:state] == state.abbreviation)}= link_to state.name.titleize, events_path(filter_parameters(state: state.abbreviation, event_type: params[:event_type]))
+          %li{class: ('active' if params[:state] == state.abbreviation)}= link_to state.name.titleize, events_path(filter_parameters(state: state.abbreviation, event_type: params[:event_type], date: params[:date]))
         .dropdown-header
           All States
         - for state in @states
-          %li{class: ('active' if params[:state] == state.abbreviation)}= link_to state.name.titleize, events_path(filter_parameters(state: state.abbreviation, event_type: params[:event_type]))
-  .col-xs-12.col-sm-6.center.filter
+          %li{class: ('active' if params[:state] == state.abbreviation)}= link_to state.name.titleize, events_path(filter_parameters(state: state.abbreviation, event_type: params[:event_type], date: params[:date]))
+  .col-xs-12.col-sm-4.center.filter
     Filter by Event Type:
     .btn-group
       %button.btn.dropdown-toggle{type: "button", class: "btn btn-grey", "data-toggle" => "dropdown", "aria-expanded" => false}
@@ -27,6 +27,10 @@
       %ul.dropdown-menu{role: "menu"}
         - for event_type in @event_types
           %li{class: ('active' if params[:event_type] == event_type.id)}= link_to event_type.name.titleize, events_path(filter_parameters(state: params[:state], event_type: event_type.id))
+  .col-xs-12.col-sm-4.center.filter
+    Events after:
+    %input{:name => "start_date", :type => "text", :value => @date}
+
 
 %table.table.table-hover
   %thead
