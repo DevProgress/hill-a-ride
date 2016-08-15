@@ -16,6 +16,7 @@ source 'https://rubygems.org' do
   gem 'httparty', '~> 0.13.1'
   gem 'jbuilder', '~> 2.0'
   gem 'jquery-rails'
+  gem 'local_time', '~> 1.0', '>= 1.0.3'
   gem 'mailgunner', '~> 2.4'
   gem 'momentjs-rails', '>= 2.9.0'
   gem 'mysql2'
