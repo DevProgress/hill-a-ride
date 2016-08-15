@@ -15,4 +15,6 @@
 //= require turbolinks
 //= require bootstrap
 //= require local_time
+//= require moment
+//= require daterangepicker
 //= require_tree .

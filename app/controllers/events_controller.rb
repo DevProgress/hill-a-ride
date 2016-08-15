@@ -3,7 +3,9 @@ class EventsController < ApplicationController
   skip_before_filter :authenticate_user!
 
   def index
-    @events = Event.where("start_date >= now()").order("start_date")
+    @date = params[:date]
+    @date ||= Date.today
+    @events = Event.where("start_date >= ?", @date).order("start_date")
     @events = @events.where(state: params[:state]) if params[:state]
     @events = @events.where(event_type_id: params[:event_type]) if params[:event_type]
     @swing_states = State.where(swing: true).order("name")
@@ -11,6 +13,7 @@ class EventsController < ApplicationController
     @event_types = EventType.all
     page = params[:page]
     page ||= 1
+
     @events = @events.paginate(page: page, per_page: 50)
   end
 

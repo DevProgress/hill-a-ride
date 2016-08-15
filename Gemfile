@@ -5,6 +5,7 @@ source 'https://rubygems.org' do
 
   gem 'aws-sdk', '~> 2.3', '>= 2.3.2'
   gem 'bootstrap_form'
+  gem 'bootstrap-daterangepicker-rails'
   gem 'bootstrap-sass', '~> 3.3.6'
   gem 'bootstrap-social-rails'
   gem 'coffee-rails', '~> 4.1.0'
