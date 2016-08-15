@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get 'events/:id/create_ride' => 'cars#new', as: :create_ride
   get 'events/:id/request_ride' => 'passengers#new', as: :create_passenger
 
+  get 'friends' => 'users#friends', as: :friends
+
   post 'cars/:id/accept' => 'cars#accept', as: :car_accept
 
   root :to => 'pages#home'
