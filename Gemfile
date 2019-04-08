@@ -1,36 +1,36 @@
 source 'https://rubygems.org' do
   ruby "2.3.1"
 
-  gem 'rails', '>= 5.0.0.rc2', '< 5.1'
+  gem 'rails'
 
-  gem 'aws-sdk', '~> 2.3', '>= 2.3.2'
+  gem 'aws-sdk'
   gem 'bootstrap_form'
   gem 'bootstrap-daterangepicker-rails'
   gem 'bootstrap-sass'
   gem 'bootstrap-social-rails'
-  gem 'coffee-rails', '~> 4.1.0'
+  gem 'coffee-rails'
   gem 'delayed_job_active_record'
-  gem 'devise', '~> 4.2'
-  gem 'font-awesome-sass', '~> 4.6.2'
+  gem 'devise'
+  gem 'font-awesome-sass'
   gem 'geocoder'
-  gem 'haml-rails', '~> 0.9.0'
-  gem 'httparty', '~> 0.13.1'
-  gem 'jbuilder', '~> 2.0'
+  gem 'haml-rails'
+  gem 'httparty'
+  gem 'jbuilder'
   gem 'jquery-rails'
-  gem 'local_time', '~> 1.0', '>= 1.0.3'
-  gem 'mailgunner', '~> 2.4'
-  gem 'momentjs-rails', '>= 2.9.0'
+  gem 'local_time'
+  gem 'mailgunner'
+  gem 'momentjs-rails'
   gem 'mysql2'
-  gem 'omniauth-facebook', '~> 4.0'
+  gem 'omniauth-facebook'
   gem 'open_uri_redirections'
-  gem 'paperclip', '~> 5.0'
-  gem 'puma', '~> 3.0'
-  gem 'pundit', '~> 1.1'
+  gem 'paperclip'
+  gem 'puma'
+  gem 'pundit'
   gem 'rails_12factor', group: :production
-  gem 'sass-rails', '~> 5.0'
-  gem 'turbolinks', '~> 5.x'
-  gem 'uglifier', '>= 1.3.0'
-  gem 'unicorn', '~> 5.1.0'
+  gem 'sass-rails'
+  gem 'turbolinks'
+  gem 'uglifier'
+  gem 'unicorn'
   gem 'will_paginate'
 
   group :development, :test do
@@ -41,9 +41,9 @@ source 'https://rubygems.org' do
   group :development do
     gem 'foreman'
     gem 'web-console'
-    gem 'listen', '~> 3.0.5'
+    gem 'listen'
     gem 'spring'
-    gem 'spring-watcher-listen', '~> 2.0.0'
+    gem 'spring-watcher-listen'
   end
 
   # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
